@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    #xx {
+      display: flex;
+      justify-content: center;
+    }
+    .xx {
+      display: flex;
+      justify-content: center;
+    }
+    body {
+      color: white;
+      box-sizing: border-box;
+    }
+    h1 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      background-color: #872341;
+      margin: 0;
+      padding: 1%;
+      color: #F05941;
+    }
+    .sum {
+      color: black;
+      font-size: 30px;
+    }
+    input {
+      margin-top: 5%;
+      text-align: center;
+      width: 25.5%;
+      height: 70px;
+    }
+    button {
+      font-weight: bold;
+      font-size: 60px;
+      width: 30%;
+      line-height: 100%;
+      color: #330902;
+      /* margin-top: 2px; */
+    }
+    .flex-container {
+      display: flex;
+      flex-wrap: wrap;
+      width: 50%;
+      height: 480px;
+      margin-top: 20px ;
+      /* flex-direction: column; */
+      background-color: #BE3144;
+      justify-content: space-around;
+      align-items: center;
+
+    }
+  </style>
+  <script defer>
+    function cc() {
+      let display = document.querySelector(".sum");
+      display.value = "0";
+    }
+
+    function onClick(num) {
+      let display = document.querySelector(".sum");
+      let currentValue = display.value;
+
+      display.value = currentValue !== "0" ? currentValue + num : num;
+    }
+    function del() {
+      let display = document.querySelector(".sum");
+      let currentValue = display.value;
+
+      if (currentValue !== "0") {
+        if (currentValue.length > 1) {
+          display.value = currentValue.substring(0, currentValue.length - 1);
+        }
+        if (currentValue.length === 1) {
+          display.value = "";
+        }
+      }
+    }
+    function evals() {
+      let display = document.querySelector(".sum");
+      let currentValue = display.value;
+      display.value = eval(currentValue);
+    }
+  </script>
+  <body style="background-color: #22092c">
+    <h1>Calculator</h1>
+
+    <div class="xx">
+      <input type="text" class="sum" value="" placeholder="Input Value here" />
+    </div>
+    <div id="xx">
+    <div class="flex-container">
+      <button onclick="onClick('1')" class="n1">1</button>
+      <button onclick="onClick('2')" class="n2">2</button>
+      <button onclick="onClick('3')" class="n3">3</button>
+      <button onclick="onClick('4')" class="n4">4</button>
+      <button onclick="onClick('5')" class="n5">5</button>
+      <button onclick="onClick('6')" class="n6">6</button>
+      <button onclick="onClick('7')" class="n7">7</button>
+      <button onclick="onClick('8')" class="n8">8</button>
+      <button onclick="onClick('9')" class="n9">9</button>
+      <button onclick="onClick('0')" class="n0">0</button>
+      <button onclick="onClick('+')" class="add">+</button>
+      <button onclick="onClick('-')" class="minus">-</button>
+      <button onclick="onClick('*')" class="multiply">*</button>
+      <button onclick="onClick('/')" class="divide">/</button>
+      <button onclick="onClick('%')" class="mod">%</button>
+      <button onclick="evals()" class="eq">=</button>
+      <button onclick="del()" class="del">del</button>
+      <button onclick="cc()" class="c">C</button>
+    </div>
+    </div>
+  </body>
+</html>
